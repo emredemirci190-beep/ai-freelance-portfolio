@@ -1,29 +1,29 @@
-TechStore Ürün ve Hizmet Kılavuzu v1.0
+TechStore Product and Service Guide v1.0
 
-BÖLÜM 1 - İADE POLİTİKASI
-Ürünler satın alma tarihinden itibaren 30 gün içinde iade edilebilir.
-İade için orijinal fatura zorunludur. Fatura yoksa banka ekstresi kabul edilir.
-Fiziksel hasar gören ürünler iade kapsamı dışındadır.
-İade onaylandıktan sonra para iadesi 5-7 iş günü içinde yapılır.
+SECTION 1 - RETURN POLICY
+Products can be returned within 30 days of purchase.
+Original invoice is required for returns. Bank statement is accepted if invoice is unavailable.
+Products with physical damage are not eligible for return.
+Refunds are processed within 5-7 business days after return approval.
 
-BÖLÜM 2 - KARGO BİLGİLERİ
-Standart kargo süresi 2-5 iş günüdür. Hafta sonları sayılmaz.
-500 TL üzeri siparişlerde kargo ücretsizdir.
-Kargo takibi sipariş onay e-postasındaki linkten yapılabilir.
-Adres değişikliği kargo çıkmadan önce yapılabilir.
+SECTION 2 - SHIPPING INFORMATION
+Standard shipping takes 2-5 business days. Weekends are not counted.
+Orders over 500 TL qualify for free shipping.
+Shipment tracking is available via the link in the order confirmation email.
+Address changes can be made before the order is dispatched.
 
-BÖLÜM 3 - GARANTİ KOŞULLARI
-Tüm ürünlerde 2 yıl üretici garantisi geçerlidir.
-Garanti; üretim hatalarını ve malzeme kusurlarını kapsar.
-Fiziksel hasar, su teması ve yetkisiz tamir garanti dışıdır.
-Garanti servisi için ürünü orijinal kutusuyla getirmeniz gerekir.
+SECTION 3 - WARRANTY CONDITIONS
+All products come with a 2-year manufacturer warranty.
+Warranty covers manufacturing defects and material faults.
+Physical damage, water contact, and unauthorized repairs void the warranty.
+Products must be brought in original packaging for warranty service.
 
-BÖLÜM 4 - ÖDEME KOŞULLARI
-Kredi kartına 12 aya kadar taksit imkanı sunulmaktadır.
-Havale/EFT ile ödemelerde %3 indirim uygulanır.
-Kapıda ödeme seçeneği mevcuttur, ek ücret alınmaz.
+SECTION 4 - PAYMENT OPTIONS
+Installment plans available up to 12 months on credit cards.
+3% discount applied for bank transfer payments.
+Cash on delivery is available at no extra charge.
 
-BÖLÜM 5 - MÜŞTERİ HİZMETLERİ
-Telefon: 0850 123 45 67 (Haftaiçi 09:00-18:00)
-E-posta: destek@techstore.com (4 saat içinde dönüş)
-Canlı destek: techstore.com/destek (10:00-17:00)
+SECTION 5 - CUSTOMER SERVICE
+Phone: 0850 123 45 67 (Weekdays 09:00-18:00)
+Email: support@techstore.com (Response within 4 hours)
+Live support: techstore.com/support (10:00-17:00)

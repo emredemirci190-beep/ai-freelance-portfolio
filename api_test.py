@@ -2,71 +2,48 @@ from google import genai
 from google.genai import types
 import time
 
-client = genai.Client(api_key="Write your API key here")
+client = genai.Client(api_key="YOUR_API_KEY_HERE")
 
-# Dosyayı oku ve PARÇALARA BÖLE
-with open("techstore_kilavuz.txt", "r", encoding="utf-8") as f:
-    icerik = f.read()
+system_prompt = """
+You are a customer support assistant for "TechStore", an electronics store.
 
-# Dökümanı bölümlere ayır (boş satırlardan böl)
-parcalar = [p.strip() for p in icerik.split("\n\n") if p.strip()]
+Information you know:
+- Return period: 30 days, original invoice required
+- Shipping time: 2-5 business days
+- Warranty: 2 years
+- Working hours: 09:00-18:00 weekdays
+- Phone: 0850 123 45 67
 
-print(f"Döküman {len(parcalar)} parçaya bölündü.\n")
+Rules:
+- Only answer questions related to this store
+- If you don't know something, say "Let me connect you to our customer service team"
+- Keep answers short and clear
+- Respond in the same language the customer uses
+"""
 
-def ilgili_parcalari_bul(soru, parcalar):
-    """
-    Sorudaki kelimeleri parçalarda ara.
-    Eşleşen parçaları döndür.
-    Bu basit RAG — gerçekte embedding kullanılır.
-    """
-    soru_kelimeleri = soru.lower().split()
-    eslesme_skoru = []
-    
-    for i, parca in enumerate(parcalar):
-        parca_kucuk = parca.lower()
-        skor = sum(1 for kelime in soru_kelimeleri if kelime in parca_kucuk)
-        eslesme_skoru.append((skor, i, parca))
-    
-    # En yüksek skorlu 2 parçayı al
-    eslesme_skoru.sort(reverse=True)
-    en_iyi = [p for skor, i, p in eslesme_skoru[:2] if skor > 0]
-    
-    return en_iyi
+history = []
 
-print("Manuel RAG sistemi hazır. Sorularınızı yazın.\n")
+print("TechStore Customer Support. How can I help you?\n")
 
 while True:
-    soru = input("Soru: ")
-    if soru.lower() == "quit":
-        break
-    
-    # Adım 1: İlgili parçaları bul
-    bulunan_parcalar = ilgili_parcalari_bul(soru, parcalar)
-    
-    if not bulunan_parcalar:
-        print("Cevap: Bu bilgi dokümanda yer almıyor.\n")
-        continue
-    
-    # Adım 2: Sadece o parçaları Gemini'ye gönder
-    baglam = "\n\n".join(bulunan_parcalar)
-    
-    print(f"[RAG: {len(bulunan_parcalar)} parça seçildi — {len(baglam)} karakter gönderiliyor]")
-    
-    sistem = f"""Sadece aşağıdaki metni kullanarak soruyu cevapla.
-Metinde yoksa "Bu bilgi dokümanda yer almıyor" de.
+    user_input = input("Customer: ")
 
-METİN:
-{baglam}"""
-    
-    time.sleep(5)
-    
-    cevap = client.models.generate_content(
+    if user_input.lower() == "quit":
+        break
+
+    history.append({"role": "user", "parts": [{"text": user_input}]})
+
+    response = client.models.generate_content(
         model="gemini-2.5-flash-lite",
-        contents=soru,
+        contents=history,
         config=types.GenerateContentConfig(
-            system_instruction=sistem,
-            temperature=0.1
+            system_instruction=system_prompt,
+            temperature=0.2
         )
     )
-    
-    print(f"Cevap: {cevap.text}\n")
+
+    bot_reply = response.text
+    history.append({"role": "model", "parts": [{"text": bot_reply}]})
+
+    print(f"TechStore Bot: {bot_reply}\n")
+    time.sleep(5)
